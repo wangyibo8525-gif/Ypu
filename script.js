@@ -1,4 +1,4 @@
-let userData = { name: "ไอเดอร์", mail: "" };
+slet userData = { name: "ไอเดอร์", mail: "" };
 window.addEventListener("load", () => {
     setTimeout(() => {
         document.getElementById("loading").style.opacity = "0";
