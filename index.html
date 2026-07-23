@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>เว็บของไอเดอร์ — สร้างโดยไอเดอร์</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="loading"><div class="spinner"></div><p>กำลังเตรียมระบบระดับโลก...</p></div>
+
+<div class="system-header">
+    <span class="title">🌐 เว็บของไอเดอร์</span>
+    <span class="specs">💾 20-230GB | 📂 ทุกประเภทไฟล์ | 🤖 AI ไม่จำกัด</span>
+</div>
+
+<div id="regPage" class="page active">
+    <div class="card">
+        <h1>🎮 เริ่มต้นสร้างสรรค์</h1>
+        <input type="text" id="inputName" placeholder="ชื่อผู้สร้าง" value="ไอเดอร์">
+        <input type="email" id="inputMail" placeholder="อีเมล">
+        <button class="btn-main" onclick="doRegister()">ยืนยัน</button>
+    </div>
+</div>
+
+<div id="giftPage" class="page">
+    <div class="card">
+        <h2>🎉 คลังสินทรัพย์ฟรี</h2>
+        <div class="asset-item">📦 3D: 223,002 ชิ้น</div>
+        <div class="asset-item">🖼️ 2D: 127,000,000 ชิ้น</div>
+        <div class="asset-item">🎨 พิกเซล: 1,000,000 ชิ้น</div>
+        <button class="btn-main" onclick="switchPage('namePage')">✅ รับทั้งหมด</button>
+    </div>
+</div>
+
+<div id="namePage" class="page">
+    <div class="card">
+        <h2>ตั้งชื่อผลงาน</h2>
+        <input type="text" id="projectName" placeholder="ชื่อเกม/เว็บ">
+        <button class="btn-main" onclick="switchPage('codePage')">ถัดไป ➡️</button>
+    </div>
+</div>
+
+<div id="codePage" class="page">
+    <div class="card">
+        <h2>✏️ เขียนโค้ด</h2>
+        <textarea id="codeEditor" placeholder="ใส่โค้ดตรงนี้"></textarea>
+        <button class="btn-sec" onclick="updatePreview()">👁️ ดูตัวอย่าง</button>
+        <iframe id="livePreview" frameborder="0"></iframe>
+        <button class="btn-main" onclick="switchPage('talk1')">เสร็จ ➡️</button>
+    </div>
+</div>
+
+<div id="talk1" class="page">
+    <div class="card dialogue">
+        <div class="char-anim bedish"></div>
+        <p>ขอบคุณที่ฟังจนจบนะ... เดี๋ยวฉันต้องไปแล้ว</p>
+        <button class="btn-main" onclick="switchPage('talk2')">ตกลง</button>
+    </div>
+</div>
+
+<div id="talk2" class="page hidden">
+    <div class="card dialogue">
+        <div class="char-anim botas"></div>
+        <p>เฮ้ยพวก! นี่นาย 2 คนเป็นคนที่เท่าไหร่แล้วเนี่ย... ไม่รู้ดิ</p>
+        <button class="btn-main" onclick="switchPage('mainPage')">เริ่มสร้างกันเถอะ</button>
+    </div>
+</div>
+
+<div id="mainPage" class="page">
+    <div class="card">
+        <h2>✅ เผยแพร่แล้ว</h2>
+        <div class="link-display" id="resultLink"></div>
+        <div class="stats-row">
+            <span>👥 0</span><span>👍 0</span><span>💬 0</span>
+            <span>🔄 0</span><span>📤 0</span>
+        </div>
+        <p class="creator-line">✨ ผลงานของ: <b id="showCreator">ไอเดอร์</b></p>
+        <button class="btn-sec" onclick="callAI()">🤖 ขอความช่วยเหลือ AI</button>
+        <div class="jump-section">
+            <input type="text" id="jumpInput" placeholder="x/2/ชื่อเว็บ">
+            <button class="btn-sec" onclick="jumpToSite()">➡️ ไป</button>
+        </div>
+        <button class="btn-main" onclick="switchPage('secretPage')">👥 ตัวละครลับ</button>
+    </div>
+</div>
+
+<div id="secretPage" class="page">
+    <div class="card">
+        <h2>👥 ตัวละครพิเศษ</h2>
+        <div class="char-card"><div class="char-anim bedish"></div><h3>บีโด้</h3></div>
+        <div class="char-card" onclick="revealSecret()"><div class="char-anim botas"></div><h3>โบเด็ก</h3></div>
+        <div class="char-card hidden" id="secretChar">
+            <div class="char-anim special"></div>
+            <h3>โปเตสโตนากูรอตัส</h3>
+            <p>สร้างโดยเรา 2 คน</p>
+        </div>
+        <button class="btn-main" onclick="switchPage('mainPage')">🔙 กลับ</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+<script src="assets.js"></script>
+<script src="ai.js"></script>
+<script src="publish.js"></script>
+</body>
+</html>
